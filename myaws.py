@@ -10,10 +10,10 @@ import string
 
 
 # More info about transfer progress: http://boto3.readthedocs.io/en/latest/_modules/boto3/s3/transfer.html
-ENCRYPT_PROGRAM_PATH = "/home/jake/go_encryption"
-ACCESS_KEY = 'AKIAI25TMDEOCXB4FSBA'
-SECRET_KEY = 'oF5ah7TlsK5QSCyd5FgonY5/J+GS3ehIDxQnZQCr'
-BUCKET_NAME = 'jake-nissley-bucket'
+ENCRYPT_PROGRAM_PATH = "ENTER YOUR PATH TO GO ENCRYPTION"
+ACCESS_KEY = "ENTER YOUR AWS ACCESS KEY"
+SECRET_KEY = "ENTER YOUR AWS SECRET KEY"
+BUCKET_NAME = "ENTER THE NAME OF YOUR AWS BUCKET"
 
 #Connect to bucket
 session = Session(aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
