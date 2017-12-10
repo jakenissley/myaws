@@ -15,6 +15,9 @@ ACCESS_KEY = "ENTER YOUR AWS ACCESS KEY"
 SECRET_KEY = "ENTER YOUR AWS SECRET KEY"
 BUCKET_NAME = "ENTER THE NAME OF YOUR AWS BUCKET"
 
+MEGABYTE = 1024**2
+KILOBYTE = 1024
+
 #Connect to bucket
 session = Session(aws_access_key_id=ACCESS_KEY, aws_secret_access_key=SECRET_KEY)
 s3 = session.resource('s3')
@@ -44,8 +47,12 @@ def list_files_on_server():
     print("------------------------------------------------------------")
     for s3_file in my_bucket.objects.all():
         count += 1
-        size = s3_file.size / (1024)
-        print("%-50s %5.3fKB" % (s3_file.key, size))
+        # size = s3_file.size / (1024)
+        size = s3_file.size
+        if size > MEGABYTE:
+            print("%-50s %-5.3fMB" % (s3_file.key, size / MEGABYTE))
+        else:
+            print("%-50s %-5.3fKB" % (s3_file.key, size / KILOBYTE))
 
 
 def encrypt():
